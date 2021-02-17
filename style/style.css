@@ -1,0 +1,69 @@
+body{
+ margin: 15px;
+ background-color: dimgray ;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+.nav{
+    align-items: center;
+    margin-top: 50px;
+}
+
+button{
+    border-radius: 5px;
+    background-color: bisque;
+}
+
+a{
+    transition: 1s;
+}
+
+a:hover{
+    font-size: medium;
+    
+}
+
+.logo{
+    height: 100px;
+}
+
+.profile{
+    height: 400px;
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+h1{
+    padding: 10px;
+    color: darkolivegreen;
+    text-align: center;
+    display: block;
+    background-color: antiquewhite;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+h2{
+    padding: 10px;
+    color: darkolivegreen;
+    text-align: center;
+    display: block;
+    background-color: antiquewhite;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
