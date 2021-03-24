@@ -1,0 +1,116 @@
+body{
+    padding: 10px;
+}
+#container{
+    display: grid;
+    width: 300px;
+    margin: auto;
+    background-color: cadetblue;
+    border-radius: 5px;
+    padding: 10px;
+    grid-gap: 5px;
+    grid-template-areas: 
+    'display display display display'
+    'addition minus product divide'
+    'num7 num8 num9 equal'
+    'num4 num5 num6 equal'
+    'num1 num2 num3 equal'
+    'clear clear num0 equal';
+}
+
+#display{
+    border-radius: 5px;
+    height: 45px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 45px;
+    background-color: whitesmoke;
+    grid-area: display;
+}
+
+
+.common{
+    background-color: darkgray;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.btn_num{}
+
+.btn_operator{}
+
+
+
+.plus{
+    grid-area: addition;
+}
+
+.minus{
+    grid-area: minus;
+}
+
+.multiply{
+    grid-area: product;
+}
+
+.division{
+    grid-area: divide;
+}
+
+.calculate{
+    grid-area: equal;
+    background-color: rgb(117, 134, 117);
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 3px;
+    text-align: center;
+    line-height: inherit;
+}
+
+.num7{
+    grid-area: num7;
+}
+
+.num8{
+    grid-area: num8;
+}
+
+.num9{
+    grid-area: num9;
+}
+
+.num4{
+    grid-area: num4;
+}
+
+.num5{
+    grid-area: num5;
+}
+
+.num6{
+    grid-area: num6;
+}
+
+.num1{
+    grid-area: num1;
+}
+
+.num2{
+    grid-area: num2;
+}
+
+.num3{
+    grid-area: num3;
+}
+
+.clear{
+    grid-area: clear;
+}
+
+.num0{
+    grid-area: num0;
+}
