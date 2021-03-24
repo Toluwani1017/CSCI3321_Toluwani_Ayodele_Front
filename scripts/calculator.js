@@ -1,5 +1,6 @@
 function updateDisplay(newValue){
     var d = document.getElementById('display');
+    let errDisplay = "Err";
 
     switch (newValue){
         case '':
