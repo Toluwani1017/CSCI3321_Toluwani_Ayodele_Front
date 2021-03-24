@@ -4,28 +4,28 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../style/calculator.css">
+        <link rel="stylesheet" href="/CSCI3321_Toluwani_Ayodele_Front/style/calculator.css">
         <title>Tolu's Calculator</title>
     </head>
     <body>
         <div id="container">
-            <div id="display">0</div>
-            <button class="common plus btn_operator">+</button>
-            <button class="common minus btn_operator">-</button>
-            <button class="common multiply btn_operator">*</button>
-            <button class="common division btn_operator">/</button>
-            <button class="common num7 btn_num">7</button>
-            <button class="common num8 btn_num">8</button>
-            <button class="common num9 btn_num">9</button>
-            <button class="common num4 btn_num">4</button>
-            <button class="common num5 btn_num">5</button>
-            <button class="common num6 btn_num">6</button>
-            <button class="common num1 btn_num">1</button>
-            <button class="common num2 btn_num">2</button>
-            <button class="common num3 btn_num">3</button>
-            <button id="clear" class="common clear">AC</button>
-            <button class="common num0 btn_num">0</button>
-            <button class="calculate">=</button>  
+            <div id="display"></div>
+            <button class="common plus" onclick="updateDisplay('+')">+</button>
+            <button class="common minus" onclick="updateDisplay('-')">-</button>
+            <button class="common multiply" onclick="updateDisplay('*')">*</button>
+            <button class="common division" onclick="updateDisplay('/')">/</button>
+            <button class="common num7" onclick="updateDisplay('7')">7</button>
+            <button class="common num8" onclick="updateDisplay('8')">8</button>
+            <button class="common num9" onclick="updateDisplay('9')">9</button>
+            <button class="common num4" onclick="updateDisplay('4')">4</button>
+            <button class="common num5" onclick="updateDisplay('5')">5</button>
+            <button class="common num6" onclick="updateDisplay('6')">6</button>
+            <button class="common num1" onclick="updateDisplay('1')">1</button>
+            <button class="common num2" onclick="updateDisplay('2')">2</button>
+            <button class="common num3" onclick="updateDisplay('3')">3</button>
+            <button class="common clear" onclick="updateDisplay('')">AC</button>
+            <button class="common num0" onclick="updateDisplay('0')">0</button>
+            <button class="calculate" onclick="updateDisplay('=')">=</button>  
         </div>
 
         <script src="../scripts/calculator.js"></script>

@@ -1,77 +1,44 @@
-const clear = document.getElementById('clear');
-const displayValElement = document.getElementById("display");
-const btnNumbers = document.getElementsByClassName("btn_num");
-const btnOperators = document.getElementsByClassName("btn_operator");
+function updateDisplay(newValue){
+    var d = document.getElementById('display');
 
-var displayVal = '0';
-var pendingVal;  
-var evalStringArray = []; 
+    switch (newValue){
+        case '':
+            d.innerHTML = '';
+            break;
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+            d.innerHTML += newValue;
+            break;
+        case '+':
+        case '-':
+        case '*':
+        case '/':
 
-updateDisplayVal = (e) => {
-    var btnText = e.target.innerText;
-    if(displayVal === "0") { 
-      displayVal = ""; 
-    }
-    displayVal += btnText; 
-    displayValElement.innerText = displayVal;
-}
+            if (d.innerHTML === '')
+            {
+                break;
+            }
 
-performOperation = (e) => {
-    var operator = e.target.innerText;  
+            if (d.innerHTML.endsWith("+") || d.innerHTML.endsWith("-") || d.innerHTML.endsWith("*") || d.innerHTML.endsWith("/")){
+               break;
+            }
+            else{
+                d.innerHTML += newValue;
+                break;
+            }
+
+        case '=':
+            d.innerHTML = eval(d.innerHTML);
+            break;
+        }
     
-      switch (operator) {
-          case '+':
-              pendingVal = displayVal;
-              displayVal = '0';
-              displayValElement.innerText = displayVal;
-              evalStringArray.push(pendingVal);
-              evalStringArray.push('+');
-              break;
-          case '-':
-              pendingVal = displayVal;
-              displayVal = '0';
-              displayValElement.innerText = displayVal;
-              evalStringArray.push(pendingVal);
-              evalStringArray.push('-');
-              break;
-          case '*':
-              pendingVal = displayVal;
-              displayVal = '0';
-              displayValElement.innerText = displayVal;
-              evalStringArray.push(pendingVal);
-              evalStringArray.push('*');
-              break;
-          case '/':
-              pendingVal = displayVal;
-              displayVal = '0';
-              displayValElement.innerText = displayVal;
-              evalStringArray.push(pendingVal);
-              evalStringArray.push('/');
-              break;
-          case '=':
-              evalStringArray.push(displayVal);
-              var evaluation = eval(evalStringArray.join(' '));
-              displayVal = evaluation + ''; 
-              console.log(typeof displayVal);
-              displayValElement.innerText = displayVal;
-              evalStringArray = [];
-              break;
-          default:
-              break;
-      }
-  }
-
-  for (let i = 0; i < btnNumbers.length; i++) {
-    btnNumbers[i].addEventListener('click', updateDisplayVal) 
-}
-
-for (let i = 0; i < btnOperators.length; i++) {
-    btnOperators[i].addEventListener('click', performOperation);
-}
-
-clear.onclick = () => {
-    displayVal = '0';
-    pendingVal = undefined;
-    evalStringArray = [];
-    displayValElement.innerHTML = displayVal;
+    
 }
