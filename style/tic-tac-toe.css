@@ -1,0 +1,65 @@
+body{
+    padding: 10px;
+}
+
+#container{
+    display: grid;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    background-color: cadetblue;
+    grid-gap: 3px;
+    grid-template-areas: 
+    'sq1 sq2 sq3'
+    'sq4 sq5 sq6'
+    'sq7 sq8 sq9';
+}
+
+.common{
+    background-color: bisque;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    font-size: xx-large;
+}
+
+#status{
+    
+}
+
+#square1{
+    grid-area: sq1;
+}
+
+#square2{
+    grid-area: sq2;
+}
+
+#square3{
+    grid-area: sq3;
+}
+
+#square4{
+    grid-area: sq4;
+}
+
+#square5{
+    grid-area: sq5;
+}
+
+#square6{
+    grid-area: sq6;
+}
+
+#square7{
+    grid-area: sq7;
+}
+
+#square8{
+    grid-area: sq8;
+}
+
+#square9{
+    grid-area: sq9;
+}
