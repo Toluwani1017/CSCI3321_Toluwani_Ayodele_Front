@@ -1,27 +1,40 @@
 var gameOver = false;
 var currentPlayer = 'X';
+
 var totalMove = 0;
+
 
 function placeMarker(spotId){
     if (!gameOver){
     var spot = document.getElementById(spotId);
-    var d = document.getElementsByClassName('common');
-    if (d.innerHTML === ''){
-        d.innerHTML = spot.innerHTML;
+    if (spot.innerHTML === ''){
+        spot.innerHTML = currentPlayer;
         if (currentPlayerWon()){
             updateGameStatus();
         }
         else{
             totalMove++;
-            currentPlayer = 'O'
         }
+        
     }
-    else
-    {}
+    currentPlayer = 'O';
     }
 }
 
+
+
 function currentPlayerWon(){
+
+    var v1 = "1";
+    var v2 = "2";
+    var v3 = "3";
+    var v4 = "4";
+    var v5 = "5";
+    var v6 = "6";
+    var v7 = "7";
+    var v8 = "8";
+    var v9 = "9";
+
     var s1 = document.getElementById('square1');
     var s2 = document.getElementById('square2');
     var s3 = document.getElementById('square3');
@@ -31,15 +44,43 @@ function currentPlayerWon(){
     var s7 = document.getElementById('square7');
     var s8 = document.getElementById('square8');
     var s9 = document.getElementById('square9');
+
+    if (s1.innerHTML !== ""){
+        v1 = s1.innerHTML;
+    }
+    if (s2.innerHTML !== ""){
+        v2 = s2.innerHTML;
+    }
+    if (s3.innerHTML !== ""){
+        v3 = s3.innerHTML;
+    }
+    if (s4.innerHTML !== ""){
+        v4 = s4.innerHTML;
+    }
+    if (s5.innerHTML !== ""){
+        v5 = s5.innerHTML;
+    }
+    if (s6.innerHTML !== ""){
+        v6 = s6.innerHTML;
+    }
+    if (s7.innerHTML !== ""){
+        v7 = s7.innerHTML;
+    }
+    if (s8.innerHTML !== ""){
+        v8 = s8.innerHTML;
+    }
+    if (s9.innerHTML !== ""){
+        v9 = s9.innerHTML;
+    }
     
-    if ((s1.innerHTML === s2.innerHTML && s2.innerHTML === s3.innerHTML) 
-    || (s4.innerHTML === s5.innerHTML && s5.innerHTML === s6.innerHTML)
-    || (s7.innerHTML === s8.innerHTML && s8.innerHTML === s9.innerHTML) 
-    || (s1.innerHTML === s4.innerHTML && s4.innerHTML === s7.innerHTML)
-    || (s2.innerHTML === s5.innerHTML && s5.innerHTML === s8.innerHTML)
-    || (s3.innerHTML === s6.innerHTML && s6.innerHTML === s9.innerHTML)
-    || (s1.innerHTML === s5.innerHTML && s5.innerHTML === s9.innerHTML)
-    || (s3.innerHTML === s5.innerHTML && s5.innerHTML === s7.innerHTML)){
+    if ((v1 === v2 && v2 === v3) 
+    || (v4 === v5 && v5 === v6)
+    || (v7 === v8 && v8 === v9) 
+    || (v1 === v4 && v4 === v7)
+    || (v2 === v5 && v5 === v8)
+    || (v3 === v6 && v6 === v9)
+    || (v1 === v5 && v5 === v9)
+    || (v3 === v5 && v5 === v7)){
         gameOver = true;
     }
     else{
@@ -47,7 +88,7 @@ function currentPlayerWon(){
     }
 
     if (!gameOver){
-        if (totalMove = 9){
+        if (totalMove === 9){
             gameOver = true;
         }
     }
@@ -57,9 +98,15 @@ function currentPlayerWon(){
 function updateGameStatus(){
     var stausBoard = document.getElementById('status');
     if (gameOver){
-        stausBoard.innerHTML = "game over!"
+        if (totalMove === 9){
+            stausBoard.innerHTML = "Its a tie"
+        }
+        else{
+            stausBoard.innerHTML = "game over!"
+        }
+        
     }
     else{
-        
+
     }
 }
