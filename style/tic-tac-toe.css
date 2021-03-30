@@ -25,7 +25,8 @@ body{
 }
 
 #status{
-
+    text-align: center;
+    padding:5px ;
 }
 
 #square1{
@@ -62,4 +63,11 @@ body{
 
 #square9{
     grid-area: sq9;
+}
+
+#restart{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
 }

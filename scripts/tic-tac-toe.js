@@ -6,18 +6,28 @@ var totalMove = 0;
 
 function placeMarker(spotId){
     if (!gameOver){
-    var spot = document.getElementById(spotId);
-    if (spot.innerHTML === ''){
-        spot.innerHTML = currentPlayer;
-        if (currentPlayerWon()){
-            updateGameStatus();
+        var spot = document.getElementById(spotId);
+        if (spot.innerHTML === ''){
+            spot.innerHTML = currentPlayer;
+            if (currentPlayerWon()){
+                updateGameStatus();
+            }
+            else{
+                totalMove++;
+            }
+            
+        }
+        if (currentPlayer == 'X' && totalMove <= 8){
+            currentPlayer = 'O';
+            stausBoard.innerHTML = "O's turn";
+        }
+        else if (currentPlayer == 'O' && totalMove <= 8){
+            currentPlayer = 'X';
+            stausBoard.innerHTML = "X's turn";
         }
         else{
-            totalMove++;
+            return;
         }
-        
-    }
-    currentPlayer = 'O';
     }
 }
 
@@ -44,6 +54,7 @@ function currentPlayerWon(){
     var s7 = document.getElementById('square7');
     var s8 = document.getElementById('square8');
     var s9 = document.getElementById('square9');
+    var s = [s1, s2, s3, s4, s5, s6, s7, s8, s9 ]
 
     if (s1.innerHTML !== ""){
         v1 = s1.innerHTML;
@@ -88,25 +99,51 @@ function currentPlayerWon(){
     }
 
     if (!gameOver){
-        if (totalMove === 9){
+        return;
+    }
+    else{
+        if (totalMove === 8){
             gameOver = true;
         }
     }
     return gameOver;
 }
     
+var stausBoard = document.getElementById('status');
 function updateGameStatus(){
-    var stausBoard = document.getElementById('status');
+    
     if (gameOver){
-        if (totalMove === 9){
-            stausBoard.innerHTML = "Its a tie"
+        if (totalMove === 8){
+            stausBoard.innerHTML = "Its a tie";
         }
-        else{
-            stausBoard.innerHTML = "game over!"
+        else if (gameOver == true && currentPlayer == 'O') {
+            stausBoard.innerHTML = "O wins";
         }
+        else if (gameOver == true && currentPlayer == 'X'){
+            stausBoard.innerHTML = "X wins";
+        }
+        else{gameOver;}
         
     }
-    else{
+    
+}
 
+function restart(){
+    var s1 = document.getElementById('square1');
+    var s2 = document.getElementById('square2');
+    var s3 = document.getElementById('square3');
+    var s4 = document.getElementById('square4');
+    var s5 = document.getElementById('square5');
+    var s6 = document.getElementById('square6');
+    var s7 = document.getElementById('square7');
+    var s8 = document.getElementById('square8');
+    var s9 = document.getElementById('square9');
+    var s = [s1, s2, s3, s4, s5, s6, s7, s8, s9 ]
+    var i;
+
+    for (i=0; i < s.length; i++){
+        s[i].innerHTML = "";
     }
+    document.getElementById('restart');
+    gameOver = false;
 }
