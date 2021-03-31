@@ -9,24 +9,32 @@ function placeMarker(spotId){
         var spot = document.getElementById(spotId);
         if (spot.innerHTML === ''){
             spot.innerHTML = currentPlayer;
+            if(currentPlayer=='X'){
+                stausBoard.innerHTML = "O's turn";
+            }
+            else{
+                stausBoard.innerHTML = "X's turn";
+            }
             if (currentPlayerWon()){
                 updateGameStatus();
             }
             else{
                 totalMove++;
+                if(totalMove==9){
+                    gameOver=true;
+                    updateGameStatus();
+                }
             }
             
         }
         if (currentPlayer == 'X' && totalMove <= 8){
             currentPlayer = 'O';
-            stausBoard.innerHTML = "O's turn";
         }
         else if (currentPlayer == 'O' && totalMove <= 8){
             currentPlayer = 'X';
-            stausBoard.innerHTML = "X's turn";
         }
-        else{
-            return;
+        else {
+            updateGameStatus();
         }
     }
 }
@@ -110,10 +118,11 @@ function currentPlayerWon(){
 }
     
 var stausBoard = document.getElementById('status');
+
 function updateGameStatus(){
     
     if (gameOver){
-        if (totalMove === 8){
+        if (totalMove == 9){
             stausBoard.innerHTML = "Its a tie";
         }
         else if (gameOver == true && currentPlayer == 'O') {
@@ -125,6 +134,7 @@ function updateGameStatus(){
         else{gameOver;}
         
     }
+
     
 }
 
@@ -144,6 +154,7 @@ function restart(){
     for (i=0; i < s.length; i++){
         s[i].innerHTML = "";
     }
-    document.getElementById('restart');
+    totalMove=0;
+    currentPlayer='X';
     gameOver = false;
 }
